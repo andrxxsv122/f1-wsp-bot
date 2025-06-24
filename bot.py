@@ -7,11 +7,14 @@ from f1_utils import get_drivers_standings, get_next_race
 
 app = Flask(__name__)
 
-@app.route("/webhook", methods=["POST"]) 
+@app.route("/webhook", methods=["POST"])
 def webhook():
-    data = request.json
+    data = request.get_json(force=True, silent=True)
+    if not data:
+        return jsonify({"error": "No se recibió JSON válido"}), 400
+
     message = data.get("message", {}).get("text", "").strip().lower()
-    
+
     if message in ["start", "menu", "hola"]:
         reply = "📋 Opciones:\n1. Clasificación pilotos\n2. Próxima carrera\n(Responde con 1 o 2)"
     elif message == "1":
