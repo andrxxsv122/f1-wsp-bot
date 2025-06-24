@@ -2,10 +2,11 @@ import os
 import fastf1
 import fastf1.utils
 
-if not os.path.exists('cache'):
-    os.mkdir('cache')
+CACHE_DIR = 'cache'
+if not os.path.exists(CACHE_DIR):
+    os.makedirs(CACHE_DIR)
 
-fastf1.Cache.enable_cache('cache')
+fastf1.Cache.enable_cache(CACHE_DIR)
 
 def get_next_race():
     schedule = fastf1.get_event_schedule(2025)
