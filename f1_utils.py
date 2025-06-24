@@ -1,5 +1,10 @@
+import os
 import fastf1
 import fastf1.utils
+
+if not os.path.exists('cache'):
+    os.mkdir('cache')
+
 fastf1.Cache.enable_cache('cache')
 
 def get_next_race():
@@ -27,4 +32,3 @@ def get_drivers_standings():
         return msg
     except:
         return "No se pudo obtener la clasificación."
-        

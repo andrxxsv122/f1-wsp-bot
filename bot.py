@@ -7,7 +7,7 @@ from f1_utils import get_drivers_standings, get_next_race
 
 app = Flask(__name__)
 
-@app.route("/webook", methods=["POST"])
+@app.route("/webhook", methods=["POST"]) 
 def webhook():
     data = request.json
     message = data.get("message", {}).get("text", "").strip().lower()
@@ -25,7 +25,7 @@ def webhook():
         "recipient_type": "individual",
         "type": "text",
         "text": {
-            "body":reply
+            "body": reply
         }
     })
 
