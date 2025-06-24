@@ -1,13 +1,13 @@
 # 🏎️ F1 Info API
 
-API REST para obtener información actualizada de Fórmula 1:
+API REST para obtener información actualizada de Fórmula 1, pensada para integrarse con un bot de WhatsApp que responde consultas sobre:
 
 - Clasificación de pilotos  
 - Clasificación de constructores  
 - Resultados de la última carrera  
 - Próxima carrera
 
-Esta API realiza scraping de la web oficial de Fórmula 1 y usa la librería FastF1 para datos específicos.
+Esta API realiza scraping de la web oficial de Fórmula 1 y usa la librería FastF1 para datos específicos, exponiendo endpoints simples para consumir desde el bot.
 
 ---
 
