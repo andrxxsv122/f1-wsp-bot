@@ -3,7 +3,8 @@ from f1_utils import (
     get_drivers_standings,
     get_next_race,
     get_drivers_position,
-    get_constructors_standings
+    get_constructors_standings,
+    get_info_menu
 )
 
 app = Flask(__name__)
@@ -14,14 +15,7 @@ def index():
 
 @app.route("/api/info", methods=["GET"])
 def info():
-    reply = (
-        "📋 Opciones:\n"
-        "1. Clasificación pilotos\n"
-        "2. Clasificación constructores\n"
-        "3. Resultados última carrera\n"
-        "4. Próxima carrera\n"
-        "(Responde con 1, 2, 3 o 4)"
-    )
+    reply = get_info_menu()
     return jsonify({"message": reply})
 
 @app.route("/api/option/<int:opt>", methods=["GET"])
